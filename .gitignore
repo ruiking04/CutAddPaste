@@ -1,0 +1,14 @@
+# package
+__pycache__
+*.egg-info
+tmp
+runs
+# IDE/system
+.idea
+*.swp
+.DS_Store
+sandbox
+.vscode
+# build files
+.ipynb_checkpoints
+venv/
