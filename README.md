@@ -22,7 +22,7 @@ Link to our paper [here]().
 If you use this code for your research, please cite our paper:
 
 ```
-
+We will add citation information later.
 ```
 
 ## Installation
@@ -34,6 +34,7 @@ pip install -r requirements.txt
 ```
 
 ## Dataset
+We acknowledge the contributors of the dataset, including AIOps, UCR, SWaT, and WADI.
 This repository already includes Merlion's data loading package `ts_datasets`.
 
 ### AIOps (KPI, IOpsCompetition) and UCR. 
@@ -62,16 +63,16 @@ Source code of CutAddPaste model.
 ### `results`
 Directory where the experiment result is saved.
 
-## Usage
-
-### CutAddPaste
+## CutAddPaste Usage
 ```
 # CutAddPaste Method (dataset_name: IOpsCompetition, UCR, SWaT, WADI)
 python cutAddPaste.py --selected_dataset <dataset_name> --device cuda --seed 2
 ```
 
-### Baselines
-We solemnly reiterate that in addition to our method, the source code of other baselines is based on the GitHub source code 
+## Baselines
+Anomaly Transformer(AOT), COCA, AOC, RandomScore(RAS), InputOrigin(AAS), NCAD, LSTMED, OC_SVM, ISF, SR, RRCF, SVDD, DAMP, TS_AD(TCC)
+
+We reiterate that in addition to our method, the source code of other baselines is based on the GitHub source code 
 provided by their papers. For reproducibility, we changed the source code of their models as little as possible. 
 We are grateful for the work on these papers.
 
@@ -79,10 +80,7 @@ We consult the GitHub source code of the paper corresponding to the baseline and
 For baselines that use the same datasets as ours, we use their own recommended hyperparameters. 
 For different datasets, we use the same hyperparameter optimization method Grid Search as our model to find the optimal hyperparameters.
 
-Anomaly Transformer(AOT), COCA, AOC, RandomScore(RAS), InputOrigin(AAS), NCAD, LSTMED, OC_SVM, ISF, SR, RRCF, SVDD, DAMP, TS_AD(TCC)
-
-
-## Acknowledgements
+### Acknowledgements
 Part of the code, especially the baseline code, is based on the following source code.
 1. [Anomaly Transformer(AOT)](https://github.com/thuml/Anomaly-Transformer)
 2. [COCA](https://github.com/ruiking04/COCA)
