@@ -107,7 +107,7 @@ for idx in tqdm(range(model_num)):
     # Load Model
     model = base_Model(configs, device).to(device)
     print("Data loaded ...")
-    train_dl, val_dl, test_dl, test_anomaly_window_num = data_generator5(train_data, test_data, train_labels,
+    train_dl, val_dl, test_dl, test_anomaly_window_num = data_generator(train_data, test_data, train_labels,
                                                                          test_labels, SEED, configs)
 
     model_optimizer = torch.optim.Adam(model.parameters(), lr=configs.lr, betas=(configs.beta1, configs.beta2),
