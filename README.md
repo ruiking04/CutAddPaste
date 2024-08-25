@@ -18,11 +18,26 @@ This repository provides the implementation of the _CutAddPaste: Time Series Ano
 
 
 ## Citation
-Link to our paper [here]().
+Link to our paper [here](https://dl.acm.org/doi/10.1145/3637528.3671739).
 If you use this code for your research, please cite our paper:
 
 ```
-We will add citation information later.
+@inproceedings{10.1145/3637528.3671739,
+author = {Wang, Rui and Mou, Xudong and Yang, Renyu and Gao, Kai and Liu, Pin and Liu, Chongwei and Wo, Tianyu and Liu, Xudong},
+title = {CutAddPaste: Time Series Anomaly Detection by Exploiting Abnormal Knowledge},
+year = {2024},
+isbn = {9798400704901},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3637528.3671739},
+doi = {10.1145/3637528.3671739},
+booktitle = {Proceedings of the 30th ACM SIGKDD Conference on Knowledge Discovery and Data Mining},
+pages = {3176–3187},
+numpages = {12},
+keywords = {abnormal knowledge, anomaly detection, anomaly-assumption, data augmentation, time series},
+location = {Barcelona, Spain},
+series = {KDD '24}
+}
 ```
 
 ## Installation
