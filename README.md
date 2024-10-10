@@ -41,7 +41,7 @@ series = {KDD '24}
 ```
 
 ## Installation
-This code is based on `Python 3.8`, all requirements are written in `requirements.txt`. Additionally, we should install `saleforce-merlion v1.1.1` and `ts_dataset` as Merlion suggested.
+This code is based on `Python 3.6`, all requirements are written in `requirements.txt`. Additionally, we should install `saleforce-merlion v1.1.1` and `ts_dataset` as Merlion suggested.
 
 ```
 pip install salesforce-merlion==1.1.1
