@@ -76,7 +76,7 @@ else:
     else:
         dt = SMD()
     model_num = len(dt)
-    model_num = 1
+    # model_num = 1
 
 # Aggregate statistics from full dataset
 all_test_rpa_score, all_test_pa_score, all_test_pw_score = [], [], []
