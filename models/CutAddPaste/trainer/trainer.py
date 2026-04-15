@@ -7,7 +7,6 @@ from merlion.evaluate.anomaly import ScoreType
 from models import *
 from models.reasonable_metric import tsad_reasonable
 from models.reasonable_metric import reasonable_accumulator
-# from torch.utils.tensorboard import SummaryWriter
 from .early_stopping import EarlyStopping
 
 sys.path.append("../../")
@@ -35,19 +34,7 @@ def Trainer(model, model_optimizer, train_dl, val_dl, test_dl, device, config, i
                     )
         all_epoch_train_loss.append(train_loss.item())
         all_epoch_test_loss.append(test_loss.item())
-        if config.dataset == 'UCR':
-            val_affiliation, val_score, _, _, _ = ad_predict(val_target, val_score_origin, config.threshold_determine,
-                                                       config.detect_nu)
-            test_affiliation, test_score, _, _, predict = ad_predict(test_target, test_score_origin, config.threshold_determine,
-                                                       config.detect_nu)
-            score_reasonable = tsad_reasonable(test_target, predict, config.time_step)
-            indicator = test_score.f1(ScoreType.RevisedPointAdjusted)
-            early_stopping(score_reasonable, test_affiliation, test_score, indicator, val_score_origin,
-                           test_score_origin, model)
-            if early_stopping.early_stop:
-                print("Early stopping")
-                break
-        elif config.dataset == 'SWaT' or config.dataset == 'WADI':
+        if config.dataset == 'SWaT' or config.dataset == 'WADI':
             early_stopping(0, 0, 0, -val_loss.item(), val_score_origin, test_score_origin, model)
             if early_stopping.early_stop:
                 print("Early stopping")
@@ -127,13 +114,6 @@ def Trainer(model, model_optimizer, train_dl, val_dl, test_dl, device, config, i
     print("Test PW F1")
     print(
         f'Test F1: {test_pw_f1:2.4f}  | \tTest precision: {test_pw_precision:2.4f}  | \tTest recall: {test_pw_recall:2.4f}\n')
-
-    # writer = SummaryWriter()
-    # for i in range(config.num_epoch):
-    #     writer.add_scalars('loss', {'train': all_epoch_train_loss[i],
-    #                                 'test': all_epoch_test_loss[i]}, i)
-    # # writer.add_embedding(part_embedding_feature, metadata=part_embedding_target, tag='test embedding')
-    # writer.close()
 
     return test_score_origin, test_affiliation, test_rpa_score, test_pa_score, test_pw_score, score_reasonable, predict
 

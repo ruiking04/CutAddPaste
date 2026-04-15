@@ -75,6 +75,14 @@ This directory contains experiment parameters for all models on AIOps (as `IOpsC
 ### `models`
 Source code of CutAddPaste model.
 
+It should be noted that the UCR dataset exhibits high diversity, 
+with 250 subsets covering various fields, including healthcare, industry, astronomy, and others. 
+Since the data distribution differs across each subset, the corresponding hyperparameters, 
+especially the number of training epochs, vary accordingly and require individual tuning for each subset. 
+Furthermore, the test set contains only one anomalous segment, making it difficult to split a validation 
+set from it. Therefore, in this paper, we keep all other hyperparameters fixed and search for the optimal 
+number of epochs within a predefined range.
+
 ### `results`
 Directory where the experiment result is saved.
 

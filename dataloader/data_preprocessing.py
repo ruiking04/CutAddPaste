@@ -8,7 +8,6 @@ from merlion.transform.normalize import MeanVarNormalize
 
 def norm(train, test):
     scaler = StandardScaler()
-    # scaler.fit(np.concatenate((train, test), axis=0))
     scaler.fit(train)
     train_data = scaler.transform(train)
     test_data = scaler.transform(test)
@@ -118,7 +117,7 @@ def other_datasets(time_series, meta_data):
     train_labels = TimeSeries.from_pd(meta_data.anomaly[meta_data.trainval])
     test_labels = TimeSeries.from_pd(meta_data.anomaly[~meta_data.trainval])
     mvn = MeanVarNormalize()
-    mvn.train(train_time_series_ts + test_time_series_ts)
+    mvn.train(train_time_series_ts)
     # salesforce-merlion==1.1.1
     bias, scale = mvn.bias, mvn.scale
 
