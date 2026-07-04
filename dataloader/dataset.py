@@ -74,7 +74,12 @@ def data_generator(train_data, test_data, train_labels, test_labels, seed, confi
             test_y_window[i] = 0
     train_y = train_y_window
     test_y = test_y_window
-    test_x, val_x, test_y, val_y = train_test_split(test_x, test_y_window, test_size=0.2, shuffle=True, random_state=seed,
+    if configs.dataset == 'UCR' or configs.dataset == 'IOpsCompetition':
+        _, val_x, _, val_y = train_test_split(train_x, train_y, test_size=0.2, shuffle=True,
+                                                        random_state=seed,
+                                                        stratify=test_y_window)
+    else:
+        test_x, val_x, test_y, val_y = train_test_split(test_x, test_y_window, test_size=0.2, shuffle=True, random_state=seed,
                                           stratify=test_y_window)
 
     train_origin = train_x.copy()

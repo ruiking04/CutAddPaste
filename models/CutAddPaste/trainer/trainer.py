@@ -42,16 +42,7 @@ def Trainer(model, model_optimizer, train_dl, val_dl, test_dl, device, config, i
 
     print("\n################## Training is Done! #########################")
     # according to scores to create predicting labels
-    if config.dataset == 'UCR':
-        score_reasonable = early_stopping.best_score_reasonable
-        # The UCR validation set has no anomaly, so it does not print.
-        test_score_origin = early_stopping.best_predict2
-        test_affiliation, test_rpa_score, test_pa_score, test_pw_score, predict = ad_predict(test_target,
-                                                                                             test_score_origin,
-                                                                                             config.threshold_determine,
-                                                                                             config.detect_nu)
-
-    elif config.dataset == 'SWaT' or config.dataset == 'WADI':
+    if config.dataset == 'SWaT' or config.dataset == 'WADI':
         val_score_origin = early_stopping.best_predict1
         test_score_origin = early_stopping.best_predict2
         print('best loss: {:.4f}'.format(early_stopping.best_indicator))
